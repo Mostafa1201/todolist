@@ -16,10 +16,14 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = Todo::where('user_id',auth()->user()->id)->select('id','content','status')->get();
+        if(auth()->user()){
+            $todos = Todo::where('user_id',auth()->user()->id)->select('id','content','status')->get();
+        }else{
+            redirect('/login');
+        }
         return view('todos.index',compact('todos'));
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *

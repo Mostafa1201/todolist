@@ -21,4 +21,3 @@ Route::post('/todos/done', 'TodoController@markDone');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

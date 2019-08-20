@@ -108,6 +108,10 @@ html, body {
     width: 70%;
 }
 
+.navbar{
+    margin-bottom: 2%;
+}
+
 
 @media screen and (max-width: 770px) {
     .full-height {

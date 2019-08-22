@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Todo;
 use Illuminate\Http\Request;
 use Validator;
+use App\User;
 Use Auth;
 
 class TodoController extends Controller
@@ -17,7 +18,8 @@ class TodoController extends Controller
     public function index()
     {
         if(auth()->user()){
-            $todos = Todo::where('user_id',auth()->user()->id)->select('id','content','status')->get();
+            $userInstance = new User;
+            $todos = User::find(auth()->user()->id)->todos;
         }else{
             redirect('/login');
         }
